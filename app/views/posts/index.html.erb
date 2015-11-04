@@ -4,3 +4,17 @@
 	<p><%= post.content %></p>
 	<small><%= post.created_at %></small>
 <% end %>
+<% @posts.each do |post| %>
+  
+    <h2><%= post.title %></h2>
+    <p><%= post.content %></p>
+    <table>
+    <tr>
+	    <td><%= link_to 'Show', post %></td>
+	    <td><%= link_to 'Edit', edit_post_path(post) %></td>
+	    <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    </table>
+    <small><%= post.created_at %></small>
+<% end %>
+<p><%= link_to 'New Blog', new_post_path %><p>

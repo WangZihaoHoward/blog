@@ -26,7 +26,16 @@ class PostsController < ApplicationController
 	end
 
 	def update
-
+		@post = Post.find(params[:id])
+    	respond_to do |format|
+	      if @post.update_attributes(params[:post])
+	        format.html { redirect_to @post, notice: 'Blog was successfully updated.' }
+	        #format.json { head :no_content }
+	      else
+	        format.html { render action: "edit" }
+	        #format.json { render json: @blog.errors, status: :unprocessable_entity }
+	      end
+	    end
 	end
 
 	def destroy

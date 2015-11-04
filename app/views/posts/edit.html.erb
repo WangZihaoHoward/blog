@@ -1,3 +1,14 @@
-<h2><%= @post.title %></h2>
-<p><%= @post.content %></p>
-<small><%= @post.created_at %></small>
+<h1>Edit a Post</h1>
+<%= form_for @post do |f| %>
+	<p>
+		<%= f.label :title %><br />
+		<%= f.text_field :title %>
+	</p>
+	<p>
+		<%= f.label :content %><br />
+		<%= f.text_area :content %>
+	</p>
+	<p>
+		<%= f.submit "Edit a Post" %>
+	</p>
+<% end %>
